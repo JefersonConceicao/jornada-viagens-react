@@ -5,20 +5,22 @@ import {
     CardFooter
  } from './style'; 
 
-export function CardViagem(){
+ import { ButtonAction } from '../ButtonAction';
+
+export function CardViagem({tipo, pais, valor, image, url }){
     return (
-        <Card> 
+        <Card image={image}> 
             <CardHeader>
-                <span> Hotel + Aéreo </span>
-                <h4> Japão </h4> 
+                <span> {tipo ?? ""} </span>
+                <h3> {pais ?? ""} </h3> 
             </CardHeader> 
             <CardBody>
-                R$ 4.0000
+                <h1> { valor ?? ""} </h1>
             </CardBody> 
             <CardFooter>
-                <button> 
-                    Ver detalhes 
-                </button>
+                <ButtonAction> 
+                    Ver detalhes
+                </ButtonAction>
             </CardFooter>
         </Card> 
     )

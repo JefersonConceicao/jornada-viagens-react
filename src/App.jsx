@@ -2,7 +2,13 @@ import {
     GlobalStyle, 
     ContainerPrincipal, 
     Section,
-    ContainerGrid
+    ContainerGridOfertas,
+    ContainerFlex,
+    SectionTitle,
+    ContainerCondicoesPagamento,
+    DescricaoPagamento,
+    GridImagesPagamento,
+    ImagesPagamento
 } from './style';
 
 import { ThemeProvider } from 'styled-components';
@@ -10,8 +16,12 @@ import {defaultTheme } from './style/theme/DefaultTheme'
 
 import { Header } from './components/Header';
 import { CardViagem } from './components/CardViagem';
+import { CardCategoria } from './components/CardCategoria';
+import { DestinoPopular } from './components/DestinoPopular';
 
 import principalBanner from './assets/principal_banner.svg';
+import backgroundCards from './assets/card_images/background_image_card.svg'
+import imageCategoria from './assets/cards_categorias/ícone - pacotes nacionais.svg';
 
 function App() {
   return (
@@ -23,7 +33,7 @@ function App() {
             <img src={principalBanner} alt="Homem remando em um lago" />
           </ContainerPrincipal>
           <Section>
-              <h2> Boas vindas </h2> 
+              <SectionTitle> Boas vindas </SectionTitle> 
               <p> Somos uma agência apaixonada por criar viagens únicas e inesquecíveis para nossos clientes. 
                 Com anos de experiência no setor de turismo, nossa equipe está mais do que preparada para ajudar 
                 você a planejar a viagem dos seus sonhos.
@@ -35,22 +45,91 @@ function App() {
               </p>
           </Section>
           <Section> 
-              <h2> Ofertas da Semana </h2>
+              <SectionTitle> Ofertas da Semana </SectionTitle>
+              <ContainerGridOfertas> 
+                  <CardViagem 
+                    tipo="HOTEL+AEREO"
+                    pais="Japão"
+                    valor="R$ 4.0000"
+                    image={backgroundCards}
+                  /> 
+                  <CardViagem 
+                  tipo="HOTEL+AEREO"
+                  pais="Japão"
+                  valor="R$ 4.0000"
+                  image={backgroundCards}
+                /> 
+                  <CardViagem 
+                  tipo="HOTEL+AEREO"
+                  pais="Japão"
+                  valor="R$ 4.0000"
+                  image={backgroundCards}
+                /> 
+                  <CardViagem 
+                  tipo="HOTEL+AEREO"
+                  pais="Japão"
+                  valor="R$ 4.0000"
+                  image={backgroundCards}
+                /> 
+              </ContainerGridOfertas>
+          </Section>
+          <Section> 
+            <SectionTitle> Busque por Categoria </SectionTitle>
+            <ContainerFlex> 
+              <CardCategoria image={imageCategoria} title="Pacotes Nacionais"/>
+              <CardCategoria image={imageCategoria} title="Pacotes Internacionais"/>
+              <CardCategoria image={imageCategoria} title="Hotéis e Hospedagens"/>
+              <CardCategoria image={imageCategoria} title="Bagagem Extra"/>
+            </ContainerFlex>
+          </Section>
 
-              <ContainerGrid> 
-                <CardViagem> 
+          <Section> 
+            <SectionTitle> Destinos Populares </SectionTitle>
+            <ContainerFlex>
+              <DestinoPopular 
+                image={backgroundCards}
+                descricao="
+                  Tóquio é uma cidade vibrante e cosmopolita, 
+                  com seus templos históricos, 
+                  museus de arte moderna e arranha-céus icônicos. 
+                  Não perca a chance de mergulhar em sua atmosfera fascinante.
+                "  
+              />
+              
+              <DestinoPopular 
+                image={backgroundCards}
+                descricao="
+                  Tóquio é uma cidade vibrante e cosmopolita, 
+                  com seus templos históricos, 
+                  museus de arte moderna e arranha-céus icônicos. 
+                  Não perca a chance de mergulhar em sua atmosfera fascinante.
+                "  
+              />
+            </ContainerFlex>
+          </Section>
+          <Section> 
+            <SectionTitle> Condições de Pagamento </SectionTitle>
+            <ContainerCondicoesPagamento>
+              <DescricaoPagamento>
+                <h2>Parcelamento <br/> em até 12x! </h2>
+                
+                <p> 
+                  Viaje pagando em até 12 parcelas no cartão,
+                  à vista no crédito com 5% de desconto ou no Pix 
+                  com 10% de desconto! 
+                </p>
 
-                </CardViagem>
-                <CardViagem> 
-                  
-                  </CardViagem>
-                  <CardViagem> 
-                  
-                  </CardViagem>
-                  <CardViagem> 
-                  
-                  </CardViagem>
-              </ContainerGrid>
+              </DescricaoPagamento> 
+              <GridImagesPagamento> 
+                  <ImagesPagamento src={backgroundCards} />
+                  <ImagesPagamento src={backgroundCards} />
+                  <ImagesPagamento src={backgroundCards} fill="true"/>
+              </GridImagesPagamento>
+            </ContainerCondicoesPagamento>
+          </Section>
+
+          <Section> 
+            <SectionTitle> Depoimentos </SectionTitle>
           </Section>
       </ThemeProvider>
     </>
